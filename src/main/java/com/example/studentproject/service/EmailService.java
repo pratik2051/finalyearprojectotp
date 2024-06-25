@@ -87,7 +87,7 @@ public class EmailService {
                 + "<p style='color:gray; font-size:12px;'>(This is an auto generated email, so please do not reply back. Email at "
                 + "<a href='mailto:pratikkhadkakc2051@gmail.com'>pratikkhadkakc2051@gmail.com</a> if you need assistance.)</p>"
                 + "<p>Regards,<br/>Pratik Khadka</p>"
-                + "<img src='cid:policeOfficerImage' alt='Police Officer' style='width:100px; height:auto;'/>"
+                + "<img src='cid:policeOfficerImage' alt='Security Department' style='width:100px; height:auto;'/>"
                 + "</body>"
                 + "</html>";
         helper.setText(htmlContent, true);

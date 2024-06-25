@@ -1,28 +1,56 @@
 package com.example.studentproject.model;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "productdetails")
-
+@Table(name = "product")
 public class Product {
+
     @Id
-    @GeneratedValue
-    private String id;
-    private String productCategory;
-    private String productName;
-    private Long rating;
-    private Long quality;
-    private Long maximumProducts;
-    private Long minimumProducts;
-    private String userName;
-    private String emailAddress;
-    private Long phoneNumber;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
+    @Column(nullable = false)
+    private String name;
 
+    @Column(nullable = false)
+    private double price;
+
+    @Column(nullable = false)
+    private int quantity;
+
+    // Constructors, getters and setters, and other methods...
+
+    // Getters
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    // Setters
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 }
-
-
