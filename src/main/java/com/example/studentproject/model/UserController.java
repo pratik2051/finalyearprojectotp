@@ -1,6 +1,6 @@
 package com.example.studentproject.model;
 
-import com.example.studentproject.repository.UserService;
+import com.example.studentproject.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PatchMapping;

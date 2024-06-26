@@ -4,6 +4,7 @@ import com.example.studentproject.dto.requests.*;
 import com.example.studentproject.dto.responses.GeneralAPIResponse;
 import com.example.studentproject.dto.responses.RegisterResponse;
 import com.example.studentproject.service.AuthenticationService;
+import com.example.studentproject.service.DepartmentService;
 import com.example.studentproject.service.JwtService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -15,12 +16,14 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/auth")
+@CrossOrigin(origins = "http://localhost:3000")
 @RequiredArgsConstructor
 @Slf4j
-public class AuthenticationController implements AuthenticationInterface{
+public class AuthenticationController implements DepartmentService.AuthenticationInterface {
 
     private final AuthenticationService authenticationService;
     private final JwtService jwtService;
+
 
     @PostMapping("/register")
     public ResponseEntity<RegisterResponse> register(@Valid @RequestBody RegisterRequest registerRequest) {

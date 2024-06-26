@@ -1,7 +1,8 @@
-package com.example.studentproject.repository;
+package com.example.studentproject.service;
 
 import com.example.studentproject.model.ChangePasswordRequest;
 import com.example.studentproject.model.User;
+import com.example.studentproject.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
