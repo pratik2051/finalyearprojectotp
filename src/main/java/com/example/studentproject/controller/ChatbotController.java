@@ -19,7 +19,7 @@ public class ChatbotController {
         // OpenAI URL
         String url = "https://api.openai.com/v1/engines/davinci-codex/completions";
         // Replace 'YOUR-API-KEY' with your OpenAI key
-        String apiKey = "my test key YOUR-API-KEY";
+        String apiKey = "Bearer YOUR-API-KEY";
         // Create HTTP headers
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
