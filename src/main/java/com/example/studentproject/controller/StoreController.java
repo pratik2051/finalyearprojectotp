@@ -10,31 +10,31 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/auth/product")
-public class ProductController {
+@RequestMapping("/api/v1/auth/store")
+public class StoreController {
 
     private final ProductService productService;
 
     @Autowired
-    public ProductController(ProductService productService) {
+    public StoreController(ProductService productService) {
         this.productService = productService;
     }
 
 
-    @PostMapping("/productsave")
+    @PostMapping("/storesave")
     public ResponseEntity<Product> saveProduct(@RequestBody Product product) {
         Product newProduct = productService.saveProduct(product);
         return ResponseEntity.ok(newProduct);
     }
 
 
-    @GetMapping("/getproducts")
+    @GetMapping("/getstoreitems")
     public List<Product> getAllProducts() {
         return productService.getAllProducts();
     }
 
 
-    @GetMapping("/products/{id}")
+    @GetMapping("/storesitems/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable Long id) {
         Optional<Product> product = productService.getProductById(id);
         return product.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
@@ -48,7 +48,7 @@ public class ProductController {
     }
 
 
-    @DeleteMapping("/products/{id}")
+    @DeleteMapping("/delproducts/{id}")
     public ResponseEntity<String> deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
         return ResponseEntity.ok("Product deleted successfully");

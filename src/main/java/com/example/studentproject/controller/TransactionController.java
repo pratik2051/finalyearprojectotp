@@ -11,32 +11,32 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/transactions")
+@RequestMapping("/api/v1/auth/transaction")
 public class TransactionController {
 
     @Autowired
     private TransactionService transactionService;
 
-    @GetMapping
+    @GetMapping("/alltransactions")
     public ResponseEntity<List<Transaction>> getAllTransactions() {
         List<Transaction> transactions = transactionService.getAllTransactions();
         return ResponseEntity.ok(transactions);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("getall/{id}")
     public ResponseEntity<Transaction> getTransactionById(@PathVariable Long id) {
         Optional<Transaction> transactionOptional = transactionService.getTransactionById(id);
         return transactionOptional.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping
+    @PostMapping("/savetransaction")
     public ResponseEntity<Transaction> createTransaction(@RequestBody Transaction transaction) {
         Transaction savedTransaction = transactionService.saveTransaction(transaction);
         return new ResponseEntity<>(savedTransaction, HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("update/{id}")
     public ResponseEntity<Transaction> updateTransaction(@PathVariable Long id, @RequestBody Transaction transaction) {
         Transaction updatedTransaction = transactionService.updateTransaction(id, transaction);
         if (updatedTransaction != null) {

@@ -16,30 +16,30 @@ public class SupplierController {
     @Autowired
     private SupplierService supplierService;
 
-    @PostMapping
+    @PostMapping("/create")
     public Supplier createSupplier(@RequestBody Supplier supplier) {
         return supplierService.saveSupplier(supplier);
     }
 
-    @GetMapping
+    @GetMapping("/getsuppliers")
     public List<Supplier> getAllSuppliers() {
         return supplierService.getAllSuppliers();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getsupplierbyid/{id}")
     public ResponseEntity<Supplier> getSupplierById(@PathVariable Long id) {
         Supplier supplier = supplierService.getSupplierById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Supplier not found for this id :: " + id));
         return ResponseEntity.ok().body(supplier);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/updateSupplierid/{id}")
     public ResponseEntity<Supplier> updateSupplier(@PathVariable Long id, @RequestBody Supplier supplierDetails) {
         Supplier updatedSupplier = supplierService.updateSupplier(id, supplierDetails);
         return ResponseEntity.ok(updatedSupplier);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delsupplier/{id}")
     public ResponseEntity<Void> deleteSupplier(@PathVariable Long id) {
         supplierService.deleteSupplier(id);
         return ResponseEntity.noContent().build();

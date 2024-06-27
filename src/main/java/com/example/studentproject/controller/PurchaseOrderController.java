@@ -17,7 +17,7 @@ import java.util.Optional;
         @Autowired
         private PurchaseOrderService purchaseOrderService;
 
-        @GetMapping
+        @GetMapping("/allpurchase")
         public ResponseEntity<List<PurchaseOrder>> getAllPurchaseOrders() {
             List<PurchaseOrder> purchaseOrders = purchaseOrderService.getAllPurchaseOrders();
             return ResponseEntity.ok(purchaseOrders);
