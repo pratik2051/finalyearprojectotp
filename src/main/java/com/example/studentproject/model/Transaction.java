@@ -78,5 +78,5 @@ public class Transaction {
     private Date date;
     private String remarks;
 
+    }
 
-}
