@@ -16,7 +16,7 @@ public class SupplierController {
     @Autowired
     private SupplierService supplierService;
 
-    @PostMapping("/create")
+    @PostMapping("/savesupplier")
     public Supplier createSupplier(@RequestBody Supplier supplier) {
         return supplierService.saveSupplier(supplier);
     }
