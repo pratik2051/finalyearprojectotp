@@ -21,14 +21,14 @@ public class ProductController {
     }
 
 
-    @PostMapping("/product")
+    @PostMapping("/productsave")
     public ResponseEntity<Product> saveProduct(@RequestBody Product product) {
         Product newProduct = productService.saveProduct(product);
         return ResponseEntity.ok(newProduct);
     }
 
 
-    @GetMapping("/products")
+    @GetMapping("/getproducts")
     public List<Product> getAllProducts() {
         return productService.getAllProducts();
     }
