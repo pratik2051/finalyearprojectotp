@@ -1,16 +1,8 @@
 package com.example.studentproject.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
 import java.util.Date;
 
-
-@Entity
-@Table(name = "Item_table")
-public class Item {
-    @Id
+public class InventoryItem {
     private int id;
     private String itemname;
     private Long quantity;
@@ -18,11 +10,12 @@ public class Item {
     private Integer itemnumber;
     private Date expiredate;
     private Date purchasedate;
-    private String catagory;
+    private String category;
     private String supplier;
     private Double unitprice;
     private Double totalvalue;
 
+    // Getters and setters
     public int getId() {
         return id;
     }
@@ -79,12 +72,12 @@ public class Item {
         this.purchasedate = purchasedate;
     }
 
-    public String getCatagory() {
-        return catagory;
+    public String getCategory() {
+        return category;
     }
 
-    public void setCatagory(String catagory) {
-        this.catagory = catagory;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getSupplier() {

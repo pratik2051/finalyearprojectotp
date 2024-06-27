@@ -10,14 +10,14 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/auth/item")
+@RequestMapping("/api/v1/item")
 public class ItemController {
 
     @Autowired
     private ItemService itemService;
 
     // Create
-    @PostMapping
+    @PostMapping("/create")
     public Item createItem(@RequestBody Item item) {
         return itemService.saveItem(item);
     }
@@ -29,14 +29,14 @@ public class ItemController {
     }
 
     // Read item by ID
-    @GetMapping("/{id}")
+    @GetMapping("getbyid/{id}")
     public ResponseEntity<Item> getItemById(@PathVariable int id) {
         Optional<Item> item = itemService.getItemById(id);
         return item.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     // Update
-    @PutMapping("/{id}")
+    @PutMapping("putbyid/{id}")
     public ResponseEntity<Item> updateItem(@PathVariable int id, @RequestBody Item itemDetails) {
         Optional<Item> item = itemService.getItemById(id);
         if (item.isPresent()) {
@@ -59,7 +59,7 @@ public class ItemController {
     }
 
     // Delete
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delbyid{id}")
     public ResponseEntity<Void> deleteItem(@PathVariable int id) {
         Optional<Item> item = itemService.getItemById(id);
         if (item.isPresent()) {

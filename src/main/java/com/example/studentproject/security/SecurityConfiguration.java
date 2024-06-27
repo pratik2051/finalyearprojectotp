@@ -46,7 +46,7 @@ public class SecurityConfiguration {
           http
                   .csrf(AbstractHttpConfigurer::disable)
                   .authorizeHttpRequests(auth -> auth
-                          .requestMatchers(mvc.pattern("/api/v1/auth/**")).permitAll()
+                          .requestMatchers(mvc.pattern("/api/v1/**")).permitAll()
                           .requestMatchers(SWAGGER_WHITELIST).permitAll()
                           .anyRequest().authenticated())
                   .exceptionHandling(e -> e.authenticationEntryPoint(authenticationEntryPoint))
