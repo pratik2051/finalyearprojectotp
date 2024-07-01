@@ -1,19 +1,17 @@
 package com.example.studentproject.model;
 
-import jakarta.persistence.*;
-
-import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
-public class Supplier {
+public class AssetCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
-
-    @OneToMany
-    private List<Asset> assets;
 
     public Long getId() {
         return id;
@@ -31,12 +29,4 @@ public class Supplier {
         this.name = name;
     }
 
-    public List<Asset> getAssets() {
-        return assets;
-    }
-
-    public void setAssets(List<Asset> assets) {
-        this.assets = assets;
-    }
-// Getters and Setters
 }

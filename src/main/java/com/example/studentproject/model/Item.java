@@ -1,8 +1,6 @@
 package com.example.studentproject.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -11,6 +9,8 @@ import java.util.Date;
 @Table(name = "Item_table")
 public class Item {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+
     private int id;
     private String itemname;
     private Long quantity;

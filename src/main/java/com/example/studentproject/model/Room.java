@@ -5,15 +5,15 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-public class Supplier {
+public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String number;
 
-    @OneToMany
-    private List<Asset> assets;
+    @ManyToOne
+    private Location location;
 
     public Long getId() {
         return id;
@@ -23,12 +23,20 @@ public class Supplier {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNumber() {
+        return number;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     public List<Asset> getAssets() {
@@ -38,5 +46,9 @@ public class Supplier {
     public void setAssets(List<Asset> assets) {
         this.assets = assets;
     }
-// Getters and Setters
+
+    @OneToMany
+    private List<Asset> assets;
+
+    // Getters and Setters
 }
