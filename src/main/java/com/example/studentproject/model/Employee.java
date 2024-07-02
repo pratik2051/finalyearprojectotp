@@ -1,26 +1,18 @@
 package com.example.studentproject.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 
-import java.security.Permission;
 import java.util.List;
 
+@Entity
 public class Employee {
-
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id;
+    @Id
+    private Long id;
 
     private String name;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Permission> permissions;
-
-    // Getters and Setters
-
 
     public Long getId() {
         return id;

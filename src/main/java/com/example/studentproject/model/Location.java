@@ -37,5 +37,5 @@ public class Location {
     public void setAddress(String address) {
         this.address = address;
     }
-// Getters and Setters
+
 }

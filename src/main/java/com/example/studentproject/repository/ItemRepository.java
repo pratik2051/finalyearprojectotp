@@ -1,4 +1,4 @@
-package com.example.studentproject.service;
+package com.example.studentproject.repository;
 
 import com.example.studentproject.model.Item;
 import org.springframework.data.jpa.repository.JpaRepository;

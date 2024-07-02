@@ -2,6 +2,7 @@ package com.example.studentproject.service;
 
 
 import com.example.studentproject.model.Item;
+import com.example.studentproject.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
