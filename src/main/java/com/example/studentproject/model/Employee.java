@@ -6,11 +6,15 @@ import java.util.List;
 
 @Entity
 public class Employee {
+
     @Id
+    @GeneratedValue
     private Long id;
 
     private String name;
-
+    private String email;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<Permission> permissions;
     public String getEmail() {
         return email;
     }
@@ -18,10 +22,6 @@ public class Employee {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    private String email;
-    @ManyToMany(fetch = FetchType.EAGER)
-    private List<Permission> permissions;
 
     public Long getId() {
         return id;

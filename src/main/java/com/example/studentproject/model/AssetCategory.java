@@ -13,6 +13,9 @@ public class AssetCategory {
 
     private String name;
 
+    private String description;
+    private Boolean is_laptop;
+
     public Long getId() {
         return id;
     }
@@ -29,4 +32,19 @@ public class AssetCategory {
         this.name = name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Boolean getIs_laptop() {
+        return is_laptop;
+    }
+
+    public void setIs_laptop(Boolean is_laptop) {
+        this.is_laptop = is_laptop;
+    }
 }

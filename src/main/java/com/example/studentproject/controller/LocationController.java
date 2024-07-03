@@ -34,7 +34,6 @@ public class LocationController {
         Location existingLocation = locationService.getLocationById(id);
         if (existingLocation != null) {
             existingLocation.setName(location.getName());
-            existingLocation.setAddress(location.getAddress());
             return locationService.saveLocation(existingLocation);
         } else {
             return null;

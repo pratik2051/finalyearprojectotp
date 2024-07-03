@@ -33,9 +33,10 @@ public class RoomController {
     public Room updateRoom(@PathVariable Long id, @RequestBody Room room) {
         Room existingRoom = roomService.getRoomById(id);
         if (existingRoom != null) {
-            existingRoom.setNumber(room.getNumber());
+            existingRoom.setId(room.getId());
+            existingRoom.setName(room.getName());
             existingRoom.setLocation(room.getLocation());
-            existingRoom.setAssets(room.getAssets());
+            existingRoom.setDescription(room.getDescription());
             return roomService.saveRoom(existingRoom);
         } else {
             return null;

@@ -14,7 +14,7 @@ public class SupplierController {
     @Autowired
     private SupplierService supplierService;
 
-    @GetMapping
+    @GetMapping("/getallsuppliers")
     public List<Supplier> getAllSuppliers() {
         return supplierService.getAllSuppliers();
     }
@@ -24,7 +24,7 @@ public class SupplierController {
         return supplierService.getSupplierById(id);
     }
 
-    @PostMapping
+    @PostMapping("/createsupplier")
     public Supplier createSupplier(@RequestBody Supplier supplier) {
         return supplierService.saveSupplier(supplier);
     }
@@ -34,7 +34,10 @@ public class SupplierController {
         Supplier existingSupplier = supplierService.getSupplierById(id);
         if (existingSupplier != null) {
             existingSupplier.setName(supplier.getName());
-            existingSupplier.setAssets(supplier.getAssets());
+            existingSupplier.setEmail(supplier.getEmail());
+            existingSupplier.setMobileno(supplier.getMobileno());
+            existingSupplier.setDescription(supplier.getDescription());
+            existingSupplier.setId(supplier.getId());
             return supplierService.saveSupplier(existingSupplier);
         } else {
             return null;

@@ -1,19 +1,18 @@
 package com.example.studentproject.model;
 
-import jakarta.persistence.*;
-
-import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String number;
-
-    @ManyToOne
-    private Location location;
+    private String name;
+    private String location;
+    private String description;
 
     public Long getId() {
         return id;
@@ -23,32 +22,27 @@ public class Room {
         this.id = id;
     }
 
-    public String getNumber() {
-        return number;
+    public String getName() {
+        return name;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Location getLocation() {
+    public String getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
+    public void setLocation(String location) {
         this.location = location;
     }
 
-    public List<Asset> getAssets() {
-        return assets;
+    public String getDescription() {
+        return description;
     }
 
-    public void setAssets(List<Asset> assets) {
-        this.assets = assets;
+    public void setDescription(String description) {
+        this.description = description;
     }
-
-    @OneToMany
-    private List<Asset> assets;
-
-    // Getters and Setters
 }
