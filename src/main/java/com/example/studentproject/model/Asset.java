@@ -19,39 +19,10 @@ public class Asset {
     private String serial_number;
     private Date purchase_date;
     private Long purchase_cost;
-    private Long catagory_id;
+    private Long category_id;
     private Long status_id;
     private Long employee_id;
     private Long room_id;
-
-    public Long getStatus_id() {
-        return status_id;
-    }
-
-    public void setStatus_id(Long status_id) {
-        this.status_id = status_id;
-    }
-
-    private LocalDateTime arrivalTime;
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private AssetCategory category;
-
-    public Long getCatagory_id() {
-        return catagory_id;
-    }
-
-    public void setCatagory_id(Long catagory_id) {
-        this.catagory_id = catagory_id;
-    }
-
-    public AssetCategory getCategory() {
-        return category;
-    }
-
-    public void setCategory(AssetCategory category) {
-        this.category = category;
-    }
 
     public Integer getId() {
         return id;
@@ -133,8 +104,21 @@ public class Asset {
         this.purchase_cost = purchase_cost;
     }
 
+    public Long getCategory_id() {
+        return category_id;
+    }
 
+    public void setCategory_id(Long category_id) {
+        this.category_id = category_id;
+    }
 
+    public Long getStatus_id() {
+        return status_id;
+    }
+
+    public void setStatus_id(Long status_id) {
+        this.status_id = status_id;
+    }
 
     public Long getEmployee_id() {
         return employee_id;
@@ -151,16 +135,7 @@ public class Asset {
     public void setRoom_id(Long room_id) {
         this.room_id = room_id;
     }
-
-    public LocalDateTime getArrivalTime() {
-        return arrivalTime;
-    }
-
-    public void setArrivalTime(LocalDateTime arrivalTime) {
-        this.arrivalTime = arrivalTime;
-    }
-
-   }
+}
 
 
 
