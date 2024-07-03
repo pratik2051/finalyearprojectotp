@@ -3,6 +3,7 @@ package com.example.studentproject.service;
 
 import com.example.studentproject.model.Employee;
 import com.example.studentproject.repository.EmployeeRepository;
+import com.example.studentproject.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
     private EmployeeRepository employeeRepository;
+    @Autowired
+    private UserRepository userRepository;
+
 
     @Override
     public List<Employee> getAllEmployees() {
@@ -35,4 +39,5 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void deleteEmployee(Long id) {
         employeeRepository.deleteById(id);
     }
+
 }

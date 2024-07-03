@@ -19,7 +19,7 @@ public class RoomController {
         return roomService.getAllRooms();
     }
 
-    @GetMapping("/getroomby{id}")
+    @GetMapping("/getroomby/{id}")
     public Room getRoomById(@PathVariable Long id) {
         return roomService.getRoomById(id);
     }
@@ -29,7 +29,7 @@ public class RoomController {
         return roomService.saveRoom(room);
     }
 
-    @PutMapping("/updatebyid{id}")
+    @PutMapping("/updatebyid/{id}")
     public Room updateRoom(@PathVariable Long id, @RequestBody Room room) {
         Room existingRoom = roomService.getRoomById(id);
         if (existingRoom != null) {
@@ -42,7 +42,7 @@ public class RoomController {
         }
     }
 
-    @DeleteMapping("/deleteroom{id}")
+    @DeleteMapping("/deleteroom/{id}")
     public void deleteRoom(@PathVariable Long id) {
         roomService.deleteRoom(id);
     }

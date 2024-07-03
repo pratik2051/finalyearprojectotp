@@ -19,7 +19,7 @@ public class LocationController {
         return locationService.getAllLocations();
     }
 
-    @GetMapping("/getlocationbyid{id}")
+    @GetMapping("/getlocationbyid/{id}")
     public Location getLocationById(@PathVariable Long id) {
         return locationService.getLocationById(id);
     }
@@ -29,7 +29,7 @@ public class LocationController {
         return locationService.saveLocation(location);
     }
 
-    @PutMapping("/updatelocation{id}")
+    @PutMapping("/updatelocation/{id}")
     public Location updateLocation(@PathVariable Long id, @RequestBody Location location) {
         Location existingLocation = locationService.getLocationById(id);
         if (existingLocation != null) {
@@ -41,7 +41,7 @@ public class LocationController {
         }
     }
 
-    @DeleteMapping("/dellocation{id}")
+    @DeleteMapping("/dellocation/{id}")
     public void deleteLocation(@PathVariable Long id) {
         locationService.deleteLocation(id);
     }

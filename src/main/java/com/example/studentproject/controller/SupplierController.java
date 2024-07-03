@@ -19,7 +19,7 @@ public class SupplierController {
         return supplierService.getAllSuppliers();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getbyid/{id}")
     public Supplier getSupplierById(@PathVariable Long id) {
         return supplierService.getSupplierById(id);
     }
@@ -29,7 +29,7 @@ public class SupplierController {
         return supplierService.saveSupplier(supplier);
     }
 
-    @PutMapping("/updatesupplier{id}")
+    @PutMapping("/updatesupplier/{id}")
     public Supplier updateSupplier(@PathVariable Long id, @RequestBody Supplier supplier) {
         Supplier existingSupplier = supplierService.getSupplierById(id);
         if (existingSupplier != null) {
@@ -41,7 +41,7 @@ public class SupplierController {
         }
     }
 
-    @DeleteMapping("/delsupplier{id}")
+    @DeleteMapping("/delsupplier/{id}")
     public void deleteSupplier(@PathVariable Long id) {
         supplierService.deleteSupplier(id);
     }

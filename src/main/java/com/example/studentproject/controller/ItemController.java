@@ -59,7 +59,7 @@ public class ItemController {
     }
 
     // Delete
-    @DeleteMapping("/delbyid{id}")
+    @DeleteMapping("/delbyid/{id}")
     public ResponseEntity<Void> deleteItem(@PathVariable int id) {
         Optional<Item> item = itemService.getItemById(id);
         if (item.isPresent()) {

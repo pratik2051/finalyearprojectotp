@@ -19,7 +19,7 @@ public class PermissionController {
         return permissionService.getAllPermissions();
     }
 
-    @GetMapping("/getpermission{id}")
+    @GetMapping("/getpermission/{id}")
     public Permission getPermissionById(@PathVariable Long id) {
         return permissionService.getPermissionById(id);
     }
@@ -29,7 +29,7 @@ public class PermissionController {
         return permissionService.savePermission(permission);
     }
 
-    @PutMapping("/updatepermission{id}")
+    @PutMapping("/updatepermission/{id}")
     public Permission updatePermission(@PathVariable Long id, @RequestBody Permission permission) {
         Permission existingPermission = permissionService.getPermissionById(id);
         if (existingPermission != null) {
@@ -40,7 +40,7 @@ public class PermissionController {
         }
     }
 
-    @DeleteMapping("/delete{id}")
+    @DeleteMapping("/delete/{id}")
     public void deletePermission(@PathVariable Long id) {
         permissionService.deletePermission(id);
     }

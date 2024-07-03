@@ -19,7 +19,7 @@ public class AssetCategoryController {
         return assetCategoryService.getAllAssetCategories();
     }
 
-    @GetMapping("/getasset{id}")
+    @GetMapping("/getasset/{id}")
     public AssetCategory getAssetCategoryById(@PathVariable Long id) {
         return assetCategoryService.getAssetCategoryById(id);
     }
@@ -29,7 +29,7 @@ public class AssetCategoryController {
         return assetCategoryService.saveAssetCategory(assetCategory);
     }
 
-    @PutMapping("/updateassetcatagory{id}")
+    @PutMapping("/updateassetcatagory/{id}")
     public AssetCategory updateAssetCategory(@PathVariable Long id, @RequestBody AssetCategory assetCategory) {
         AssetCategory existingAssetCategory = assetCategoryService.getAssetCategoryById(id);
         if (existingAssetCategory != null) {
@@ -40,7 +40,7 @@ public class AssetCategoryController {
         }
     }
 
-    @DeleteMapping("/deleteassetcatagory{id}")
+    @DeleteMapping("/deleteassetcatagory/{id}")
     public void deleteAssetCategory(@PathVariable Long id) {
         assetCategoryService.deleteAssetCategory(id);
     }

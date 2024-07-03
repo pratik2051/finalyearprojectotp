@@ -11,6 +11,15 @@ public class Employee {
 
     private String name;
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    private String email;
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Permission> permissions;
 

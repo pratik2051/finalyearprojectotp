@@ -36,7 +36,7 @@ import java.util.Optional;
             return new ResponseEntity<>(savedPurchaseOrder, HttpStatus.CREATED);
         }
 
-        @PutMapping("/{id}")
+        @PutMapping("/allpurchase/{id}")
         public ResponseEntity<PurchaseOrder> updatePurchaseOrder(@PathVariable Long id, @RequestBody PurchaseOrder purchaseOrder) {
             PurchaseOrder updatedPurchaseOrder = purchaseOrderService.updatePurchaseOrder(id, purchaseOrder);
             if (updatedPurchaseOrder != null) {
@@ -46,7 +46,7 @@ import java.util.Optional;
             }
         }
 
-        @DeleteMapping("/{id}")
+        @DeleteMapping("/deletepurchase/{id}")
         public ResponseEntity<Void> deletePurchaseOrder(@PathVariable Long id) {
             boolean deleted = purchaseOrderService.deletePurchaseOrder(id);
             if (deleted) {
