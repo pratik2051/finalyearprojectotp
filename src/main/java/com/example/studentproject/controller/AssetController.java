@@ -36,7 +36,7 @@ public class AssetController {
         return assetService.save(asset);
     }
 
-    @PutMapping("/deletbyid{id}")
+    @PutMapping("/updateasset{id}")
     public ResponseEntity<Asset> updateAsset(@PathVariable Long id, @RequestBody Asset asset) {
         if (!assetService.findById(id).isPresent()) {
             return ResponseEntity.notFound().build();
