@@ -13,6 +13,8 @@ public class Employee {
 
     private String name;
     private String email;
+
+    private String role;
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Permission> permissions;
     public String getEmail() {
@@ -45,5 +47,13 @@ public class Employee {
 
     public void setPermissions(List<Permission> permissions) {
         this.permissions = permissions;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

@@ -24,7 +24,7 @@ public class AssetController {
         return assetService.findAll();
     }
 
-    @GetMapping("/getbyid{id}")
+    @GetMapping("/getbyid/{id}")
     public ResponseEntity<Asset> getAssetById(@PathVariable Long id) {
         return assetService.findById(id)
                 .map(ResponseEntity::ok)
@@ -36,7 +36,7 @@ public class AssetController {
         return assetService.save(asset);
     }
 
-    @PutMapping("/updateasset{id}")
+    @PutMapping("/updateasset/{id}")
     public ResponseEntity<Asset> updateAsset(@PathVariable Long id, @RequestBody Asset asset) {
         if (!assetService.findById(id).isPresent()) {
             return ResponseEntity.notFound().build();
@@ -46,7 +46,7 @@ public class AssetController {
         return ResponseEntity.ok(updatedAsset);
     }
 
-    @DeleteMapping("/deletAsset{id}")
+    @DeleteMapping("/deletAsset/{id}")
     public ResponseEntity<Void> deleteAsset(@PathVariable Long id) {
         if (!assetService.findById(id).isPresent()) {
             return ResponseEntity.notFound().build();

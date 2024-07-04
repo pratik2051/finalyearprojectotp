@@ -12,7 +12,6 @@ import java.util.Date;
 @EntityListeners(AuditingEntityListener.class)
 public class Asset {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String asset_tag;
     private String company_name;
@@ -22,11 +21,13 @@ public class Asset {
     private String warranty;
     private String serial_number;
     private Date purchase_date;
-    private Long purchase_cost;
-    private Long category_id;
-    private Long status_id;
+    private Long quantity;
+    private String category;
+    private String status;
     private Long employee_id;
     private Long room_id;
+
+    private Integer supplier_id;
 
     public Integer getId() {
         return id;
@@ -100,28 +101,36 @@ public class Asset {
         this.purchase_date = purchase_date;
     }
 
-    public Long getPurchase_cost() {
-        return purchase_cost;
+    public Long getQuantity() {
+        return quantity;
     }
 
-    public void setPurchase_cost(Long purchase_cost) {
-        this.purchase_cost = purchase_cost;
+    public void setQuantity(Long quantity) {
+        this.quantity = quantity;
     }
 
-    public Long getCategory_id() {
-        return category_id;
+    public String getStatus() {
+        return status;
     }
 
-    public void setCategory_id(Long category_id) {
-        this.category_id = category_id;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public Long getStatus_id() {
-        return status_id;
+    public Integer getSupplier_id() {
+        return supplier_id;
     }
 
-    public void setStatus_id(Long status_id) {
-        this.status_id = status_id;
+    public void setSupplier_id(Integer supplier_id) {
+        this.supplier_id = supplier_id;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public Long getEmployee_id() {
